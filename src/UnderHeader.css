@@ -1,0 +1,18 @@
+.UnderHeader{
+    display: flex;
+    background: rgb(46, 55, 63);
+}
+.UnderHeader__option{
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 3px 5px;
+    margin: 2px 4px;
+    border: 1px solid rgb(46, 55, 63);
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.UnderHeader__option:hover{
+    border: 1px solid white;
+}

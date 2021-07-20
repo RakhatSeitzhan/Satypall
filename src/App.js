@@ -5,9 +5,12 @@ import Home from './Home.js'
 import Checkout from './Checkout.js'
 import Login from './Login.js'
 import Products from './Products.js'
+import Menu from './Menu.js'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {useStateValue} from './StateProvider.js'
 import { auth } from './firebase';
+import CreateProduct from './CreateProduct.js'
+import UnderHeader from './UnderHeader.js'
 function App() {
   const [{user},dispatch] = useStateValue()
   useEffect(() => {
@@ -28,8 +31,6 @@ function App() {
       unsubscribe()
     }
   }, [])
-  if (!user) console.log(user) 
-  else console.log(user.email)
   return (
     <Router>
       <div className="App">
@@ -38,16 +39,29 @@ function App() {
             <Login/>
           </Route>
           <Route path = '/checkout'>
+            <Menu/>
             <Header/>
+            <UnderHeader/>
             <Checkout/>
           </Route>
           <Route path = '/products'>
+            {/* <CreateProduct/> */}
+            <Menu/>
             <Header/>
-            <Products/>
+            <UnderHeader/>
+            <div className = "app__container">
+              
+              <Products/>
+            </div>
           </Route>
           <Route path = '/'>
+            <Menu/>
             <Header/>
-            <Home/>
+            <UnderHeader/>
+            <div className = "app__container">
+              
+              <Home/>
+            </div>
           </Route>
         </Switch>
       </div>

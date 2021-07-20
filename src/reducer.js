@@ -1,7 +1,8 @@
 export const initialState = {
     basket: [],
     user: {},
-    category: {}
+    category: {},
+    showMenu: false,
 }
 
 function reducer(state, action){
@@ -30,6 +31,11 @@ function reducer(state, action){
             return {
                 ...state,
                 category: action.category
+            }
+        case 'SET_MENU_SHOW':
+            return {
+                ...state,
+                showMenu: action.showMenu
             }
     }
 }
